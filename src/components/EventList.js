@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, SafeAreaView, ActivityIndicator } from 'react-native';
-import { Divider, Icon } from '@rneui/themed';
+import { Divider } from '@rneui/themed';
 import { onAuthStateChanged } from "firebase/auth";
 import { onValue, ref, set, remove } from "firebase/database"
 import { auth, database } from '../../firebase';
@@ -37,22 +37,18 @@ export default function EventList({ route, navigation }) {
     const previousButton = () => {
         if (events.meta?.previous) { // button is pressable
             return (
-                <Icon
-                    reverse
+                <MaterialCommunityIcons
                     name='arrow-left-drop-circle'
-                    type='material-community'
+                    size={60}
                     color='#3f37c9'
-                    onPress={() => getEvents(events.meta?.previous)}
-                />
+                    onPress={() => getEvents(events.meta?.previous)} />
             );
         } else { // not pressable
             return (
-                <Icon
-                    reverse
+                <MaterialCommunityIcons
                     name='arrow-left-drop-circle'
-                    type='material-community'
-                    color='#858585'
-                />
+                    size={60}
+                    color='#858585' />
             );
         }
     }
@@ -61,24 +57,20 @@ export default function EventList({ route, navigation }) {
     const nextButton = () => {
         if (events.meta?.next) { // button is pressable
             return (
-                <Icon
-                    reverse
+                <MaterialCommunityIcons
                     name='arrow-right-drop-circle'
-                    type='material-community'
+                    size={60}
                     color='#3f37c9'
-                    containerStyle={{ marginLeft: 'auto' }}
-                    onPress={() => getEvents(events.meta?.next)}
-                />
+                    style={{ marginLeft: 'auto' }}
+                    onPress={() => getEvents(events.meta?.next)} />
             );
         } else { // not pressable
             return (
-                <Icon
-                    reverse
+                <MaterialCommunityIcons
                     name='arrow-right-drop-circle'
-                    type='material-community'
+                    size={60}
                     color='#858585'
-                    containerStyle={{ marginLeft: 'auto' }}
-                />
+                    style={{ marginLeft: 'auto' }} />
             );
         }
     }
